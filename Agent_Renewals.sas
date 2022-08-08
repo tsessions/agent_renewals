@@ -63,7 +63,6 @@ data matched; set matched;
 format EXPIRATION_DATE mmddyy10.;
 if EXPIRATION_DATE<'01JAN2023'd then LICENSE_RENEWAL="N";
 if EXPIRATION_DATE>'01JAN2023'd then LICENSE_RENEWAL="Y";
-if AGENT_LAST eq "BOLLARD" then LICENSE_RENEWAL="Y";
 DROP EFFECTIVE_DATE EXPIRATION_DATE LAST_NAME;RUN;
 
 proc sort data=matched nodupkey;by LICENSE_NO_;run; /*removes any duplicate agents */
